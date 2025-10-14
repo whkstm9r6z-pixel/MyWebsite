@@ -378,8 +378,6 @@ body {
                 padding: 24px;
             }
         }
-        
-        // ...existing code...
 
         /* Responsive: stack on mobile */
         @media (max-width: 900px) {
