@@ -296,6 +296,90 @@ body {
             opacity: 1;
             transform: translateY(0);
         }
+        
+        /* Contact section */
+        section.bg-contact {
+            background: url('assets/BG4.jpg') center/cover no-repeat;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 100px 20px 40px 20px;
+        }
+        
+        .contact-form-container {
+            max-width: 600px;
+            width: 100%;
+            background: rgba(255, 255, 255, 0.9);
+            padding: 40px;
+            border-radius: 12px;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+            margin-top: 20px;
+        }
+        
+        .contact-form {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+        
+        .form-group {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+        
+        .form-group label {
+            font-weight: bold;
+            color: #333;
+            font-size: 1rem;
+            text-align: left;
+        }
+        
+        .form-group input,
+        .form-group textarea {
+            padding: 12px;
+            border: 2px solid #ddd;
+            border-radius: 8px;
+            font-size: 1rem;
+            font-family: Arial, sans-serif;
+            transition: border-color 0.3s;
+        }
+        
+        .form-group input:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: #333;
+        }
+        
+        .submit-btn {
+            padding: 12px 24px;
+            background: #333;
+            color: #fff;
+            border: none;
+            border-radius: 8px;
+            font-size: 1.1rem;
+            cursor: pointer;
+            transition: background 0.3s, transform 0.2s;
+        }
+        
+        .submit-btn:hover {
+            background: #555;
+            transform: translateY(-2px);
+        }
+        
+        .submit-btn:active {
+            transform: translateY(0);
+        }
+        
+        @media (max-width: 600px) {
+            .contact-form-container {
+                padding: 24px;
+            }
+        }
+        
+        // ...existing code...
 
         /* Responsive: stack on mobile */
         @media (max-width: 900px) {
