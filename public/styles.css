@@ -110,6 +110,16 @@ body {
             text-align: center;    
         }
 
+        .section-divider {
+            width: 100vw;
+            height: 4px;
+            background: linear-gradient(to right, #88052e91, #4908928a, #d58e1489);
+            margin: 0;
+            border: none;
+            opacity: 0.8;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.28);
+        }
+
         section.bg-about {
             background: url('assets/BG1.jpg') center/cover no-repeat;
             display: grid;
@@ -137,52 +147,193 @@ body {
             box-shadow: 0 4px 24px rgba(0,0,0,0.55);
         }
 
-        #painting1 {
-            display: block;
-            width: 100%;
-            max-width: 600px;
-            height: auto;
+        section.bg-projects {
+            background: url('assets/IMG3.5.jpeg') center/cover no-repeat;
+            min-height: 100vh;
+            padding-top: 20px;
         }
 
-        .container {
-            position: relative;
-            display: inline-block;
-            height: auto;
+        section.bg-exhibitions {
+            background: url('assets/IMG3.jpeg') center/cover no-repeat;
+            min-height: 100vh;
+            padding-top: 20px;
+        }
+
+        section.bg-projects h2 {
+            margin-top: 0;
+            padding-top: 20px;
+            font-size: 2.5rem;
+        }
+
+        /* Main container: split into projects (80%) and timeline (20%) */
+        section.bg-projects .projects-container {
+            display: flex;
+            gap: 10px;
+            max-width: 1600px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+
+        /* Left side: projects area (80%) */
+        section.bg-projects .projects-main {
+            flex: 0 0 80%; /* takes up 80% of width */
+            display: flex;
+            flex-direction: column;
+            gap: 24px;
+        }
+
+        /* Grid for project cards - you can customize this however you want */
+        section.bg-projects .projects-grid {
+            display: flex;
+            flex-direction: column;
+            gap: 32px;
+            margin-top: 20px;;
+        }
+
+        /* Project card - default (odd cards, align left) */
+        section.bg-projects .project-card {
+            background: rgba(255,255,255,0.02);
+            border-radius: 8px;
             overflow: visible;
+            box-shadow: 0 6px 18px rgba(0,0,0,0.08);
+            position: relative;
+            padding: 0px;
+            display: flex;
+            justify-content: flex-start; /* align left by default */
+        }
+
+        /* Even cards - align right */
+        section.bg-projects .project-card:nth-child(even) {
+            justify-content: flex-end; /* align right */
+            margin-right: -10px;
+        }
+
+        /* Project image */
+        section.bg-projects .project-card .project-image {
+            display: block;
+            width: 50%;
+            height: auto;
+            object-fit: cover;
             box-shadow: 0 4px 24px rgba(0,0,0,0.55);
         }
 
-        .painting-description {
+        /* Slide-out description - odd cards (slide right) */
+        section.bg-projects .project-card .painting-description {
+            padding: 10px;
+            background: rgba(24, 1, 10, 0.85);
+            color: #fff;
             position: absolute;
             top: 0;
-            left: 100%;
-            width: 250px;
-            height: 100%;
-            background: rgba(151, 13, 52, 0.448);
-            color: #fff;
-            box-shadow: 0 4px 16px rgba(0,0,0,0.2);
-            padding-left: 20px;
+            left: calc(50% + 16px); /* slide out to the right */
+            width: 480px;
+            height: auto;
+            min-height: 50%;
+            transform: translateX(-10px);
             opacity: 0;
-            transform: translateX(-20px);
-            transition: opacity 0.3s, transform 0.3s;
-            pointer-events: none;
+            transition: opacity 0.28s ease, transform 0.28s ease;
+            z-index: 5;
             display: flex;
-            align-items: center;
+            align-items: flex-start;
+            box-shadow: 0 6px 24px rgba(0,0,0,0.55);
+            border-radius: 8px;
         }
 
-        .container:hover .painting-description {
+        /* Slide-out description - even cards (slide left) */
+        section.bg-projects .project-card:nth-child(even) .painting-description {
+            left: auto;
+            right: calc(50% + 16px); /* slide out to the left */
+            transform: translateX(10px); /* start slightly to the right */
+        }
+
+        section.bg-projects .project-card:hover .painting-description {
             opacity: 1;
             transform: translateX(0);
-            pointer-events: auto;
         }
 
-        .section-divider {
-            width: 100%;
-            height: 4px;
-            background: linear-gradient(to right, #911, #319, #915);
-            margin: 0;
-            border: none;
-            opacity: 0.8;
+        /* Right side: timeline (20%) */
+        section.bg-projects .timeline {
+            flex: 0 0 15%; /* takes up 20% of width */
+            position: sticky;
+            top: 100px;
+            align-self: flex-start;
+            max-height: calc(100vh - 120px);
+            overflow-y: auto;
+            padding-left: 20px;
+            border-left: 3px solid #333;
+        }
+
+        section.bg-projects .timeline .timeline-item {
+            margin-bottom: 24px;
+        }
+
+        section.bg-projects .timeline .timeline-dot {
+            position: absolute;
+            left: -32px;
+            top: 6px;
+            width: 20px;
+            height: 20px;
+            background: #fff700;
+            border: 3px solid #333;
+            border-radius: 50%;
+            box-shadow: 0 4px 24px rgba(0,0,0,0.55);
+        }
+
+        section.bg-projects .timeline .timeline-content {
+            padding: 10px 20px;
+            background: rgba(135, 100, 110, 0.517);
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.28);
+        }
+
+        /* Timeline animation */
+        section.bg-projects .timeline {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 600ms cubic-bezier(.2,.8,.2,1), transform 600ms cubic-bezier(.2,.8,.2,1);
+        }
+
+        section.bg-projects .timeline.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Responsive: stack on mobile */
+        @media (max-width: 900px) {
+            section.bg-projects .projects-container {
+                flex-direction: column;
+            }
+            
+            section.bg-projects .projects-main {
+                flex: 1;
+            }
+            
+            section.bg-projects .projects-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            section.bg-projects .timeline {
+                flex: 1;
+                position: static;
+                margin-top: 40px;
+                border-left: none;
+                padding-left: 0;
+            }
+            
+            section.bg-projects .project-card .painting-description {
+                position: static;
+                width: 100%;
+                margin-top: 10px;
+                opacity: 1;
+                transform: none;
+                left: auto;
+            }
+        }
+
+        /* Adjust sticky offset for smaller mobile navbar */
+        @media (max-width: 600px) {
+            section.bg-projects .timeline {
+                top: calc(50px + 12px);
+            }
         }
 
        @media (max-width: 600px) {
@@ -222,4 +373,16 @@ body {
                 font-size: 0.95rem;
                 padding: 8px 12px;
             }
-}
+            .section-divider {
+                height: 3px;
+            }
+        }
+
+        /* respect reduced motion preference */
+        @media (prefers-reduced-motion: reduce) {
+            section.bg-projects .timeline,
+            section.bg-projects .timeline.visible {
+                transition: none;
+                transform: none;
+            }
+        }

@@ -19,7 +19,7 @@
                 <div class="dropdown-content">
                     <a href="#about">About</a>
                     <a href="#projects">Projects</a>
-                    <a href="#skills">Skills</a>
+                    <a href="#exhibitions">Exhibitions</a>
                     <a href="#contact">Contact</a>
                 </div>
             </div>
@@ -34,20 +34,53 @@
         </div>
     </section>
     <div class="section-divider"></div>
-    <section id="projects" class="bg-projects">
+     <section id="projects" class="bg-projects">
         <h2>Projects</h2>
-        <p>Here are some of my projects...</p>
-        <div class="container">
-            <img src="public/assets/IMG1.jpeg" alt="Painting" id="painting1">
-            <div class="painting-description">
-                <p>Description of the painting...</p>
+            <p>Here are some of my projects...</p>
+    <div class="projects-container">
+        <div class="projects-main">
+            
+            <div class="projects-grid">
+                <!-- project card 1 -->
+                <div class="project-card">
+                    <img src="public/assets/IMG1.jpeg" alt="Painting" class="project-image">
+                    <div class="painting-description">
+                        <p>Description of the first painting...</p>
+                    </div>
+                </div>
+                
+                <!-- project card 2 -->
+                <div class="project-card">
+                    <img src="public/assets/IMG2.png" alt="Painting" class="project-image">
+                    <div class="painting-description">
+                        <p>Description of the second painting...</p>
+                    </div>
+                </div>
             </div>
         </div>
-    </section>
+
+        <aside class="timeline" aria-hidden="false">
+            <div class="timeline-item">
+                <div class="timeline-dot"></div>
+                <div class="timeline-content">
+                    <h3>2025</h3>
+                    <p>TURPS.</p>
+                </div>
+            </div>
+            <div class="timeline-item">
+                <div class="timeline-dot"></div>
+                <div class="timeline-content">
+                    <h3>2024</h3>
+                    <p>YUH.</p>
+                </div>
+            </div>
+        </aside>
+    </div>
+</section>
     <div class="section-divider"></div>
-    <section id="skills" class="bg-skills">
-        <h2>Skills</h2>
-        <p>My skills include...</p>
+    <section id="exhibitions" class="bg-exhibitions">
+        <h2>Exhibitions</h2>
+        <p>My exhibitions...</p>
     </section>
     <div class="section-divider"></div>
     <section id="contact" class="bg-contact">
@@ -55,5 +88,30 @@
         <p>Get in touch with me...</p>
     </section>
 </div>
+
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+  const projectsSection = document.querySelector('#projects');
+  const timeline = projectsSection && projectsSection.querySelector('.timeline');
+  if (!projectsSection || !timeline) return;
+
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      // add "visible" when section is in view, remove when it leaves
+      if (entry.isIntersecting) {
+        timeline.classList.add('visible');
+      } else {
+        timeline.classList.remove('visible');
+      }
+    });
+  }, {
+    root: null,
+    rootMargin: '0px 0px -10% 0px', // tweak to reveal earlier/later
+    threshold: 0.25
+  });
+
+  io.observe(projectsSection);
+});
+</script>
 </body>
 </html>
