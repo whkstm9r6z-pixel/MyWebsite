@@ -11,7 +11,7 @@ body {
             top: 0;
             width: 100%;
             background: rgba(0, 0, 0, 0.25);
-            backdrop-filter: blur(50px) saturate(150%);
+            backdrop-filter: blur(50px) saturate(175%);
             box-shadow: 0 2px 8px rgba(227, 205, 205, 0.05);
             display: flex;
             align-items: center;
@@ -25,7 +25,7 @@ body {
             text-align: center;
             font-size: 2.5rem;
             font-weight: bold;
-            color: #333;
+            color: #222222;
         }
 
         .navbar-menu {
@@ -157,6 +157,18 @@ body {
             background: url('assets/IMG3.jpeg') center/cover no-repeat;
             min-height: 100vh;
             padding-top: 20px;
+            display: flex;
+            
+        }
+
+        section.bg-contact {
+            background: url('assets/BG4.png') center/cover no-repeat;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding-top: 0px;
         }
 
         section.bg-projects h2 {
@@ -268,7 +280,7 @@ body {
 
         section.bg-projects .timeline .timeline-dot {
             position: absolute;
-            left: -32px;
+            left: -12px;
             top: 6px;
             width: 20px;
             height: 20px;
@@ -295,17 +307,6 @@ body {
         section.bg-projects .timeline.visible {
             opacity: 1;
             transform: translateY(0);
-        }
-        
-        /* Contact section */
-        section.bg-contact {
-            background: url('assets/BG4.jpg') center/cover no-repeat;
-            min-height: 100vh;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            padding: 100px 20px 40px 20px;
         }
         
         .contact-form-container {
