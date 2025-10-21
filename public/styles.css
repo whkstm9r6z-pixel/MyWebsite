@@ -10,9 +10,9 @@ body {
             position: fixed;
             top: 0;
             width: 100%;
-            background: rgba(62, 62, 62, 0.25);
+            background: rgba(180, 177, 177, 0.25);
             backdrop-filter: blur(50px) saturate(175%);
-            box-shadow: 4px 2px 8px rgba(31, 26, 26, 0.528);
+            box-shadow: 4px 2px 8px rgba(31, 26, 26, 0.726);
             display: flex;
             align-items: center;
             justify-content: center;
@@ -142,7 +142,10 @@ body {
         }
 
         section.bg-about {
-            background: url('assets/BG1.jpg') center/cover no-repeat;
+            background: url('assets/Metamorphosis2.jpg');
+            background-size: 150% auto;
+            background-position: bottom left;
+            background-repeat: no-repeat;
             display: grid;
             grid-template-columns: 1fr 1fr;
             align-items: center;
@@ -177,19 +180,18 @@ body {
         section.bg-exhibitions {
             min-height: 100vh;
             padding-top: 20px;
-            display: flex;
-            
         }
 
         section.bg-exhibitions h2 {
             color: rgb(0, 0, 0);
             font-size: 3rem;
             text-decoration: underline;
+            margin-left: 2%;
+            text-align: left;;
         }
 
         #carousel-container {
-            height: 600px;
-            margin: 0;
+            height: 400px;
             display: grid;
             grid-template-rows: 500px 100px;
             grid-template-columns: 1fr 30px 30px 30px 30px 30px 1fr;
@@ -198,10 +200,11 @@ body {
         }
 
         main#carousel {
+            margin-top: 20px;
             grid-row: 1 / 2;
             grid-column: 1 / 8;
-            width: 100vw;
-            height: 500px;
+            width: 98vw;
+            height: 400px;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -289,14 +292,18 @@ body {
         }
 
         section.bg-contact {
-            background: url('assets/BG4.png') center/cover no-repeat;
-            min-height: 75vh;
+            color: rgb(0, 0, 0);
+            background: url('assets/Tiger.jpg');
+            background-size: 150% auto;
+            background-position: top center;
+            background-repeat: no-repeat;
+            min-height: 60vh;
             display: flex;
             flex-direction: column;
             justify-content: center;
             align-items: center;
             padding-top: 0px;
-            font-size: 1.5em;;
+            font-size: 1.75em;;
         }
 
         section.bg-projects h2 {
@@ -449,23 +456,23 @@ body {
             display: inline-flex;
             align-items: center;
             justify-content: center;
-            background: rgba(255,255,255,0.15);
+            background: rgba(255, 255, 255, 0.616);
             border-radius: 50%;
-            width: 64px;
-            height: 64px;
+            width: 94px;
+            height: 94px;
             transition: background 0.2s, transform 0.2s;
             box-shadow: 0 2px 8px rgba(0,0,0,0.12);
             text-decoration: none;
         }
 
         .icon-btn:hover {
-            background: rgba(255,255,255,0.35);
+            background: rgb(255, 255, 255);
             transform: scale(1.08);
         }
 
         .icon-btn img {
-            width: 32px;
-            height: 32px;
+            width: 64px;
+            height: 64px;
             display: block;
         }
 
