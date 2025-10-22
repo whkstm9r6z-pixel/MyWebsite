@@ -10,7 +10,7 @@ body {
             position: fixed;
             top: 0;
             width: 100%;
-            background: rgba(180, 177, 177, 0.25);
+            background: rgba(255, 255, 255, 0.25);
             backdrop-filter: blur(50px) saturate(175%);
             box-shadow: 4px 2px 8px rgba(31, 26, 26, 0.726);
             display: flex;
@@ -167,7 +167,7 @@ body {
             align-items: center;
         }
         #about-image {
-            max-width: 600px;
+            max-width: 550px;
             box-shadow: 0 4px 24px rgba(0,0,0,0.55);
         }
 
@@ -178,6 +178,7 @@ body {
         }
 
         section.bg-exhibitions {
+            background-color: rgba(233, 238, 210, 0.927);
             min-height: 100vh;
             padding-top: 20px;
         }
@@ -189,21 +190,24 @@ body {
             margin-left: 2%;
             text-align: left;;
         }
+        section.bg-exhibitions h3 {
+            color: rgb(0, 0, 0);
+            margin-left: 2%;
+            text-align: left;;
+        }
 
-        #carousel-container {
-            height: 400px;
+        .carousel-container {
             display: grid;
-            grid-template-rows: 500px 100px;
+            grid-template-rows: auto auto auto;
             grid-template-columns: 1fr 30px 30px 30px 30px 30px 1fr;
             align-items: center;
             justify-items: center;
         }
 
         main#carousel {
-            margin-top: 20px;
             grid-row: 1 / 2;
             grid-column: 1 / 8;
-            width: 98vw;
+            width: 75vw;
             height: 400px;
             display: flex;
             align-items: center;
@@ -217,11 +221,97 @@ body {
             pointer-events: none;
         }
 
+        .carousel-container > input[type="radio"] {
+            grid-row: 2 / 3;
+            justify-self: center;
+            display: inline-block;
+            margin: 8px;
+            width: 14px;
+            height: 14px;
+            z-index: 60;                  /* stay above carousel */
+            cursor: pointer;
+            appearance: none;             /* custom dot styling */
+            border-radius: 50%;
+            background: rgba(255,255,255,0.25);
+            border: 2px solid rgba(0,0,0,0.12);
+            transition: background .18s, transform .12s;
+        }
+
+        .carousel-container > input[type="radio"]:hover {
+            transform: scale(1.12);
+        }
+
+        .carousel-container > input[type="radio"]:checked {
+            background: #333;
+            border-color: #111;
+        }
+
+        #carousel .item {
+            position: absolute;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 8px;         /* optional breathing room so tall/skinny images don't touch edges */
+            box-sizing: border-box;
+        }
+
+        #carousel .item img {
+            max-width: 100%;
+            max-height: 100%;
+            width: auto;
+            height: auto;
+            object-fit: contain;  /* show whole image, no cropping */
+            display: block;
+            border-radius: 8px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.365);
+        }
+
+        .carousel-info-container {
+    grid-row: 3 / 4;
+    grid-column: 1 / 8;
+    width: 100%;
+    justify-self: center;
+    margin-top: 8px;
+    margin-left: 0;
+    box-sizing: border-box;
+    overflow: hidden;                   /* needed for height animation */
+    transition: height 320ms ease;      /* animate container height */
+}
+
+     .carousel-info-box {
+    position: absolute;
+    top: 70%;
+    left: 50%;
+    transform: translate(-65%, 8px); /* same offset for all boxes when hidden */
+    width: 90%;
+    max-width: 900px;
+    margin: 0 auto;
+    background: rgba(128,0,32,0.6);
+    color: #fff;
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: 0 6px 24px rgba(0,0,0,0.45);
+    box-sizing: border-box;
+
+    opacity: 0;
+}
+
+/* show the appropriate info box when its radio is checked */
+input#proj1:checked ~ main#carousel + .carousel-info-container .carousel-info-box:nth-child(1),
+input#proj2:checked ~ main#carousel + .carousel-info-container .carousel-info-box:nth-child(2),
+input#proj3:checked ~ main#carousel + .carousel-info-container .carousel-info-box:nth-child(3),
+input#proj4:checked ~ main#carousel + .carousel-info-container .carousel-info-box:nth-child(4),
+input#proj5:checked ~ main#carousel + .carousel-info-container .carousel-info-box:nth-child(5) {
+    display: block;
+    opacity: 1;
+    transform: translateY(-50%, 0);
+    pointer-events: auto;
+}
+
         div.item {
             position: absolute;
             width: 300px;
             height: 400px;
-            background-color: coral;
             --r: calc(var(--position) - var(--offset));
             --abs: max(calc(var(--r) * -1), var(--r));
             transition: all 0.25s linear;
@@ -232,23 +322,18 @@ body {
 
         div.item:nth-of-type(1) {
             --offset: 1;
-            background-color: #90f1ef;
         }
         div.item:nth-of-type(2) {
             --offset: 2;
-            background-color: #ff70a6;
         }
         div.item:nth-of-type(3) {
             --offset: 3;
-            background-color: #ff9770;
         }
         div.item:nth-of-type(4) {
             --offset: 4;
-            background-color: #ffd670;
         }
         div.item:nth-of-type(5) {
             --offset: 5;
-            background-color: #e9ff70;
         }
 
         input:nth-of-type(1) {
@@ -303,7 +388,8 @@ body {
             justify-content: center;
             align-items: center;
             padding-top: 0px;
-            font-size: 1.75em;;
+            font-size: 2em;;
+            text-decoration: underline;
         }
 
         section.bg-projects h2 {
@@ -323,82 +409,6 @@ body {
             padding: 40px 20px;
         }
 
-        /* Left side: projects area (80%) */
-        section.bg-projects .projects-main {
-            flex: 0 0 80%; /* takes up 80% of width */
-            display: flex;
-            flex-direction: column;
-            gap: 24px;
-        }
-
-        /* Grid for project cards - you can customize this however you want */
-        section.bg-projects .projects-grid {
-            display: flex;
-            flex-direction: column;
-            gap: 32px;
-            margin-top: 20px;;
-        }
-
-        /* Project card - default (odd cards, align left) */
-        section.bg-projects .project-card {
-            background: rgba(255,255,255,0.02);
-            border-radius: 8px;
-            overflow: visible;
-            box-shadow: 0 6px 18px rgba(0,0,0,0.08);
-            position: relative;
-            padding: 0px;
-            display: flex;
-            justify-content: flex-start; /* align left by default */
-        }
-
-        /* Even cards - align right */
-        section.bg-projects .project-card:nth-child(even) {
-            justify-content: flex-end; /* align right */
-            margin-right: -10px;
-        }
-
-        /* Project image */
-        section.bg-projects .project-card .project-image {
-            display: block;
-            width: 50%;
-            height: auto;
-            object-fit: cover;
-            box-shadow: 0 4px 24px rgba(0,0,0,0.55);
-        }
-
-        /* Slide-out description - odd cards (slide right) */
-        section.bg-projects .project-card .painting-description {
-            padding: 10px;
-            background: rgba(24, 1, 10, 0.85);
-            color: #fff;
-            position: absolute;
-            top: 0;
-            left: calc(50% + 16px); /* slide out to the right */
-            width: 480px;
-            height: auto;
-            min-height: 50%;
-            transform: translateX(-10px);
-            opacity: 0;
-            transition: opacity 0.28s ease, transform 0.28s ease;
-            z-index: 5;
-            display: flex;
-            align-items: flex-start;
-            box-shadow: 0 6px 24px rgba(0,0,0,0.55);
-            border-radius: 8px;
-        }
-
-        /* Slide-out description - even cards (slide left) */
-        section.bg-projects .project-card:nth-child(even) .painting-description {
-            left: auto;
-            right: calc(50% + 16px); /* slide out to the left */
-            transform: translateX(10px); /* start slightly to the right */
-        }
-
-        section.bg-projects .project-card:hover .painting-description {
-            opacity: 1;
-            transform: translateX(0);
-        }
-
         /* Right side: timeline (20%) */
         section.bg-projects .timeline {
             flex: 0 0 15%; /* takes up 20% of width */
@@ -406,9 +416,9 @@ body {
             top: 100px;
             align-self: flex-start;
             max-height: calc(100vh - 120px);
-            overflow-y: auto;
+
             padding-left: 20px;
-            border-left: 3px solid #333;
+            border-left: 3px solid #000000;
         }
 
         section.bg-projects .timeline .timeline-item {
@@ -417,20 +427,32 @@ body {
 
         section.bg-projects .timeline .timeline-dot {
             position: absolute;
-            left: -13px;
-            width: 20px;
-            height: 20px;
-            background: #fff700;
-            border: 3px solid #333;
+            left: -9px;
+            width: 10px;
+            height: 10px;
+            background: #ffffff;
+            border: 3px solid #000000;
+            border-radius: 50%;
+            box-shadow: 0 4px 24px rgba(0,0,0,0.55);
+        }
+
+        section.bg-projects .timeline .timeline-dot2 {
+            position: absolute;
+            left: -9px;
+            width: 10px;
+            height: 10px;
+            background: #09ff00;
+            border: 3px solid #000000;
             border-radius: 50%;
             box-shadow: 0 4px 24px rgba(0,0,0,0.55);
         }
 
         section.bg-projects .timeline .timeline-content {
             padding: 10px 20px;
-            background: rgba(135, 100, 110, 0.517);
+            background: rgba(255, 255, 255, 0.4);
             border-radius: 8px;
             box-shadow: 0 2px 8px rgba(0,0,0,0.28);
+            color: rgb(0, 0, 0);
         }
 
         /* Timeline animation */
@@ -546,7 +568,7 @@ body {
                 background-repeat: no-repeat;
             }
             #about-image {
-                max-width: 90vw;
+                width: 300px;
                 margin: 0 auto;
                 order: 2;
             }

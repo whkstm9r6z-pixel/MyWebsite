@@ -18,7 +18,7 @@
                 </button>
                 <div class="dropdown-content">
                     <a href="#about">About</a>
-                    <a href="#projects">Projects</a>
+                    <a href="#projects">Gallery</a>
                     <a href="#exhibitions">Exhibitions</a>
                     <a href="#contact">Contact</a>
                 </div>
@@ -37,30 +37,40 @@
      <section id="projects" class="bg-projects">
         <h2>Gallery</h2>
     <div class="projects-container">
-        <div class="projects-main">
-            
-            <div class="projects-grid">
-                <!-- project card 1 -->
-                <div class="project-card">
-                    <img src="public/assets/IMG1.jpeg" alt="Painting" class="project-image">
-                    <div class="painting-description">
-                        <p>Description of the first painting...</p>
-                    </div>
+        <div class="carousel-container">
+            <input type="radio" name="position" id="proj1" />
+            <input type="radio" name="position" id="proj2" />
+            <input type="radio" name="position" id="proj3" checked/>
+            <input type="radio" name="position" id="proj4" />
+            <input type="radio" name="position" id="proj5" />
+            <main id="carousel">
+                <div class="item">
+                    <img src="public/assets/Kohinoor.jpg" alt="Kohinoor painting">
                 </div>
-                
-                <!-- project card 2 -->
-                <div class="project-card">
-                    <img src="public/assets/IMG2.png" alt="Painting" class="project-image">
-                    <div class="painting-description">
-                        <p>Description of the second painting...</p>
-                    </div>
+                <div class="item">
+                    <img src="public/assets/Tiger.jpg" alt="Tiger painting">
                 </div>
+                <div class="item">
+                    <img src="public/assets/SP.jpg" alt="Self portrait painting">
+                </div>
+                <div class="item">
+                    <img src="public/assets/Motherland.jpg" alt="Motherland painting">
+                </div>
+                <div class="item">
+                    <img src="public/assets/Miniature.jpg" alt="Miniature painting">
+                </div>
+            </main>
+             <div class="carousel-info-container">
+                <div class="carousel-info-box">Kohinoor — short description here.</div>
+                <div class="carousel-info-box">Tiger — short description here.</div>
+                <div class="carousel-info-box">Self portrait — short description here.</div>
+                <div class="carousel-info-box">Motherland — short description here.</div>
+                <div class="carousel-info-box">Miniature — short description here.</div>
             </div>
-        </div>
-
+         </div>
         <aside class="timeline" aria-hidden="false">
             <div class="timeline-item">
-                <div class="timeline-dot"></div>
+                <div class="timeline-dot2"></div>
                 <div class="timeline-content">
                     <h3>2025</h3>
                     <p>TURPS.</p>
@@ -73,31 +83,30 @@
                     <p>YUH.</p>
                 </div>
             </div>
+            <div class="timeline-item">
+                <div class="timeline-dot"></div>
+                <div class="timeline-content">
+                    <h3>2023</h3>
+                </div>
+            </div>
+            <div class="timeline-item">
+                <div class="timeline-dot"></div>
+                <div class="timeline-content">
+                    <h3>2022</h3>
+                    <p>EVEN MORE STUFF.</p>
+                </div>
+            </div>
         </aside>
     </div>
 </section>
     <div class="section-divider"></div>
     <section id="exhibitions" class="bg-exhibitions">
         <h2>Exhibitions</h2>
-        <div class="carousel-container">
-            <input type="radio" name="position" />
-            <input type="radio" name="position" />
-            <input type="radio" name="position" checked/>
-            <input type="radio" name="position" />
-            <input type="radio" name="position" />
-            <main id="carousel">
-                <div class="item"></div>
-                <div class="item"></div>
-                <div class="item"></div>
-                <div class="item"></div>
-                <div class="item"></div>
-            <main>
-         </div>
+        <h3>BLAHBLAHTitleBLAH BLAH</h3>
     </section>
     <div class="section-divider"></div>
    <section id="contact" class="bg-contact">
     <h2>Contact</h2>
-    <p>Get in touch with me...</p>
     <div class="contact-icons">
         <a href="https://instagram.com/YOUR_INSTAGRAM" target="_blank" class="icon-btn" aria-label="Instagram">
             <img src="public/assets/IG.svg" alt="Instagram" />
