@@ -1,5 +1,9 @@
 /* Stylesheet, you can ignore this */
 
+:root {
+    background-color: rgb(45, 50, 50);
+}
+
 html {
     scroll-behavior: smooth;
 }
