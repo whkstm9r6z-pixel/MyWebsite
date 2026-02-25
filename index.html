@@ -4,17 +4,23 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="public/styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400;1,500&display=swap" rel="stylesheet">
     <title>AanyaMukhtyar</title>ç
     <link rel="icon" type="image/png" href="/favicon-96x96.png" sizes="96x96" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <link rel="shortcut icon" href="/favicon.ico" />
     <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
     <link rel="manifest" href="/site.webmanifest" />
-
 </head>
+
+<!--
+There are a few pointers I can give you to have full control over your website, for one any tags starting with H(1, 2, 3...)
+are headings, with the smaller numbers being bigger headings, so these are the titles for each section essentially. 
+-->
+
 <body>
     <div class="navbar">
-        <div class="navbar-title">Aanya Mukhtyar</div>
+        <div class="navbar-title"><a href="#about" style="text-decoration:none; color:inherit;">Aanya Mukhtyar</a></div>
         <div class="navbar-menu">
             <div class="dropdown">
                 <button class="dropdown-btn" id="hamburger-btn">
@@ -24,8 +30,10 @@
                 </button>
                 <div class="dropdown-content">
                     <a href="#about">About</a>
-                    <a href="#projects">Gallery</a>
+                    <a href="#projects">Selected Works</a>
+                    <a href="#inquiries" class="dropdown-subitem">↳ Purchase Inquiries</a>
                     <a href="#exhibitions">Exhibitions</a>
+                    <a href="#Writings">Writings</a>
                     <a href="#contact">Contact</a>
                 </div>
             </div>
@@ -33,179 +41,376 @@
     </div>
     <div class="content">
     <section id="about" class="bg-about">
-
-        <!--About image, change here-->
-        <img src="public/assets/Cutout.png" alt="Aanya Mukhtyar painting" id="about-image">
         <div class="about-text">
-            <!--About text, also change/update here-->
+
+            <!--This is the about text, if you ever wanna modify it, do so here.
+            Your name is in a <span> within the <p(aragraph)> tag so that it can be 
+            emboldened but if you ever wanna remove the emboldening, just remove the <span> and </span> tags around your name-->
+
             <h3>About Me</h3>
-            <p>Welcome to my portfolio! I am Aanya Mukhtyar... blahblahblah blahblahblah blahblahblahv blahblahblah blahblahblah blahblahblah blahblahblah blahblahblah </p>
+            <p><span class="about-name">Aanya Mukhtyar</span> (b.2003) is a British Indian London based artist working largely as a painter. 
+                Aanya is interested in the relationship between light and colour, drawing inspiration from the natural world;
+                 light filtering through the leaves of trees and shining on the tips of waves. She draws cross cultural experience to create 
+                 dreamlike blends of both her Indian heritage and British upbringing, emulating a fusion synonymous with her identity.</p>
         </div>
     </section>
+
     <div class="section-divider"></div>
      <section id="projects" class="bg-projects">
-        <h2>Gallery</h2>
-    <div class="projects-container">
-        <div class="carousel-container">
-            <input type="radio" name="position" id="proj1" />
-            <input type="radio" name="position" id="proj2" />
-            <input type="radio" name="position" id="proj3" checked/>
-            <input type="radio" name="position" id="proj4" />
-            <input type="radio" name="position" id="proj5" />
 
-            <main id="carousel">
-                <!-- Gallery paintings, copy and paste a div to add more items, update as needed ofc-->
-                <div class="item">
-                    <img src="public/assets/Kohinoor.jpg" alt="Kohinoor painting">
+        <!-- This is your gallery, adding to this section is as easy as copying and pasting
+        the gallery-item divs below, you only need to change the image source alt text for accessibility
+        and the artwork title and details-->
+
+        <div class="gallery-container">
+
+            <!-- Gallery items copy and paste this block, new art always goes above, the order is as you see it on the site-->
+
+            <!-- Carousel item: list all image paths comma-separated in data-images, and matching alt texts in data-alts -->
+            <div class="gallery-item">
+                <div class="gallery-carousel"
+                     data-images="public/assets/Byepandemonium1.jpg,public/assets/Byepandemonium3.jpeg,public/assets/Byepandemonium1.jpeg"
+                     data-alts="Bye pandemonium 1,Bye pandemonium 2,Bye pandemonium 3">
+                    <img class="carousel-img" src="public/assets/Byepandemonium1.jpg" alt="Bye pandemonium 1">
+                    <div class="carousel-controls">
+                        <div class="carousel-dots"></div>
+                    </div>
                 </div>
-                <div class="item">
-                    <img src="public/assets/Tiger.jpg" alt="Tiger painting">
+                <div class="gallery-info">
+                    <h3 class="artwork-title">Bye pandemonium</h3>
+                    <p class="artwork-details">179cm x 294cm | Oil & acrylic on canvas, aluminium tube, steel cable, binoculars | 2026</p>
                 </div>
-                <div class="item">
-                    <img src="public/assets/SP.jpg" alt="Self portrait painting">
-                </div>
-                <div class="item">
-                    <img src="public/assets/Motherland.jpg" alt="Motherland painting">
-                </div>
-                <div class="item">
-                    <img src="public/assets/Miniature.jpg" alt="Miniature painting">
-                </div>
-            </main>
-            <!-- Gallery descriptions, copy lines and update as needed -->
-             <div class="carousel-info-container">
-                <div class="carousel-info-box">Kohinoor — short description here.</div>
-                <div class="carousel-info-box">Tiger — short description here.</div>
-                <div class="carousel-info-box">Self portrait — short description here.</div>
-                <div class="carousel-info-box">Motherland — short description here.</div>
-                <div class="carousel-info-box">Miniature — short description here.</div>
             </div>
-         </div>
-    </div>
+
+            <div class="gallery-item">
+                <img src="public/assets/Jaan_var.jpg" alt="Jaan var">
+                <div class="gallery-info">
+                    <h3 class="artwork-title">Jaan var</h3>
+                    <p class="artwork-details">113cm x 163cm | Oil & acrylic on canvas | 2026</p>
+                </div>
+            </div>
+            
+            <div class="gallery-item">
+                <img src="public/assets/Stairway.jpg" alt="Stairway">
+                <div class="gallery-info">
+                    <h3 class="artwork-title">Stairway to...</h3>
+                    <p class="artwork-details">18cm x 20cm | Oil on canvas | 2025</p>
+                </div>
+            </div>
+            
+            <div class="gallery-item">
+                <img src="public/assets/Light&col2.jpg" alt="Light&color2">
+                <div class="gallery-info">
+                    <h3 class="artwork-title">Light & color study 2</h3>
+                    <p class="artwork-details">7cm x 7cm | Oil on canvas | 2025</p>
+                </div>
+            </div>
+            
+            <div class="gallery-item">
+                <img src="public/assets/Sun-Sea.jpg" alt="Sun&sea">
+                <div class="gallery-info">
+                    <h3 class="artwork-title">Sun setting on the sea</h3>
+                    <p class="artwork-details"> 35cm x 45cm | Oil on canvas | 2025</p>
+                </div>
+            </div>
+
+            <div class="gallery-item">
+                <img src="public/assets/Hills&Valleys.jpg" alt="Hills & Valleys">
+                <div class="gallery-info">
+                    <h3 class="artwork-title">Hills & Valleys</h3>
+                    <p class="artwork-details"> 90cm x 90cm | Oil on canvas | 2025</p>
+                </div>
+            </div>
+
+            <div class="gallery-item">
+                <img src="public/assets/2Twizz.jpg" alt="2 Aanyas">
+                <div class="gallery-info">
+                    <h3 class="artwork-title">2 Aanyas</h3>
+                    <p class="artwork-details">80cm x 94cm | Oil & acrylic on canvas | 2025</p>
+                </div>
+            </div>
+
+            <div class="gallery-item">
+                <img src="public/assets/Lightness.jpg" alt="Lightness of...">
+                <div class="gallery-info">
+                    <h3 class="artwork-title">Lightness of...</h3>
+                    <p class="artwork-details">5ft x 5ft | Oil & acrylic on canvas | 2025</p>
+                </div>
+            </div>
+
+            <div class="gallery-item">
+                <img src="public/assets/Sun&moon.jpg" alt="Sun & Moon">
+                <div class="gallery-info">
+                    <h3 class="artwork-title">Sun & Moon converge</h3>
+                    <p class="artwork-details">64cm x 48cm | Oil on canvas | 2025</p>
+                </div>
+            </div>
+
+            <div class="gallery-item">
+                <img src="public/assets/Bouqet.jpg" alt="Bouqet of flowers">
+                <div class="gallery-info">
+                    <h3 class="artwork-title">Flower bouquet</h3>
+                    <p class="artwork-details">32cm x 18cm | Oil & acrylic on canvas | 2025</p>
+                </div>
+            </div>
+
+            <div class="gallery-item">
+                <img src="public/assets/Kohinoor2.jpg" alt="Kohinoor2">
+                <div class="gallery-info">
+                    <h3 class="artwork-title">Kohinoor 2</h3>
+                    <p class="artwork-details">90cm x 165cm | Oil & acrylic on canvas | 2025</p>
+                </div>
+            </div>
+
+            <div class="gallery-item">
+                <img src="public/assets/GirlCanDream.jpg" alt="A Girl Can Dream 2">
+                <div class="gallery-info">
+                    <h3 class="artwork-title">A Girl Can Dream 2</h3>
+                    <p class="artwork-details">A3 | Watercolour on paper | 2025</p>
+                </div>
+            </div>
+
+            <div class="gallery-item">
+                <img src="public/assets/GirlCanDream1.jpg" alt="A Girl Can Dream 1">
+                <div class="gallery-info">
+                    <h3 class="artwork-title">A Girl Can Dream 1</h3>
+                    <p class="artwork-details">A3 | Watercolour on paper | 2025</p>
+                </div>
+            </div>
+
+            <div class="gallery-item">
+                <img src="public/assets/Tiger.jpg" alt="Tiger">
+                <div class="gallery-info">
+                    <h3 class="artwork-title">Tiger</h3>
+                    <p class="artwork-details">33cm x 22cm | Oil & acrylic on canvas | 2025</p>
+                </div>
+            </div>
+
+            <div class="gallery-item">
+                <img src="public/assets/Kohinoor.jpg" alt="Kohinoor">
+                <div class="gallery-info">
+                    <h3 class="artwork-title">Kohinoor</h3>
+                    <p class="artwork-details">74cm x 50cm | Oil & acrylic on canvas | 2025</p>
+                </div>
+            </div>
+            
+            <div class="gallery-item">
+                <img src="public/assets/MothersLand.jpg" alt="Mothers Land">
+                <div class="gallery-info">
+                    <h3 class="artwork-title">Mothers Land</h3>
+                    <p class="artwork-details">83cm x 92cm | Oil & acrylic on canvas | 2024</p>
+                </div>
+            </div>
+
+            <div class="gallery-item">
+                <img src="public/assets/SelfP.jpg" alt="Self Portrait">
+                <div class="gallery-info">
+                    <h3 class="artwork-title">Self Portrait</h3>
+                    <p class="artwork-details">60cm x 43cm | Oil & acrylic on canvas | 2024</p>
+                </div>
+            </div>
+
+            <div class="gallery-item">
+                <img src="public/assets/Rajasthani.jpg" alt="Rajasthani">
+                <div class="gallery-info">
+                    <h3 class="artwork-title">Study of Rajasthani miniature</h3>
+                    <p class="artwork-details">27cm x 28cm | Watercolour on paper, thread | 2024</p>
+                </div>
+            </div>
+
+            <div class="gallery-item">
+                <img src="public/assets/Metamorphosis.jpg" alt="Metamorphosis">
+                <div class="gallery-info">
+                    <h3 class="artwork-title">Longing for Metamorphosis</h3>
+                    <p class="artwork-details">91cm x 87cm | Oil & acrylic on canvas, heavy carvable modelling paste, mdf | 2024</p>
+                </div>
+            </div>
+
+        </div>
+
+        <div id="inquiries" class="inquiry-banner">
+            <p class="inquiry-text">Purchase Inquiries</p>
+            <a href="mailto:aan.muk@icloud.com?subject=Enquiry%20about%20a%20work" class="inquiry-btn">Get in touch</a>
+        </div>
+
 </section>
+
     <div class="section-divider"></div>
     <section id="exhibitions" class="bg-exhibitions">
-        <h2>Exhibitions</h2>
-        
-        <!-- Exhibition block, copy & paste to add more -->
-        <div class="exhibition-entry">
-            <h3 class="exhibition-title">Slade 2025</h3>
-            <p class="exhibition-intro">
-                BLAH BLAH BLAH BLAH BLAH BLAH BLAH BLAH BLAH BLAH BLAH BLAH BLAH BLAH BLAH
-            </p>
-            <div class="exhibition-images">
-                <img src="public/assets/exhibition1-img1.jpg" alt="Exhibition 1 Image 1">
-                <img src="public/assets/exhibition1-img2.jpg" alt="Exhibition 1 Image 2">
-                <img src="public/assets/exhibition1-img3.jpg" alt="Exhibition 1 Image 3">
+        <div class="gallery-room">
+            <h2>Exhibitions</h2>
+
+            <!-- This is the bit where exhibitions go, most recent at the top. -->
+
+            <!-- This is a exhibition block, copy & paste above to add another one,
+             then you can change the text thats outside the pointy brackets to change the title-->
+            <div class="exhibition-entry">
+                <h3 class="exhibition-title">Carpe Diem, Safehouse | 13th November - 17th November 2025 <span class="exhibition-type">Group show</span></h3>
+                <!--Images aren't as straightforward, but as long as they are in the assets folder, 
+                and hopefuly a JPG/JPEG, you can add them by copying and pasting one of the <img> tags you
+                see below and just changing the files name to the new picture and make sure to change the alt text
+                it helps people with disabilites navigate websites.-->
+                <div class="exhibition-images">
+                    <img src="public/assets/Safehouse.jpg" alt="Safehouse image 1">
+                </div>
+            </div>
+
+            <div class="exhibition-entry">
+                <h3 class="exhibition-title">Turps Banana Summer School Leavers, Turps Banana Gallery | 3rd September - 6th September 2025 <span class="exhibition-type">Group show</span></h3>
+                <div class="exhibition-images">
+                    <img src="public/assets/Turp1.jpg" alt="Turps Banana Summer School Leavers exhibition image 1">
+                    <img src="public/assets/Turp2.jpg" alt="Turps Banana Summer School Leavers exhibition image 2">
+                </div>
+            </div>
+
+            <div class="exhibition-entry">
+                <h3 class="exhibition-title">Wake, Fitzrovia Gallery | 28th August - 31st August 2025 <span class="exhibition-type">Group show</span></h3>
+                <div class="exhibition-images">
+                    <img src="public/assets/Wake1.jpeg" alt="Wake exhibition image 1">
+                    <img src="public/assets/Wake2.jpeg" alt="Wake exhibition image 2">
+                    <img src="public/assets/Wake3.jpeg" alt="Wake exhibition image 3">
+                </div>
+            </div>
+
+            <div class="exhibition-entry">
+                <h3 class="exhibition-title">Zine Mela, WIP Space | 26th July - 14th August 2025 <span class="exhibition-type">Group show</span></h3>
+                <div class="exhibition-images">
+                    <img src="public/assets/Mela2.jpg" alt="Zine Mela Hamja Ahsan exhibition image 1">
+                    <img src="public/assets/bosid.jpg" alt="Zine Mela Hamja Ahsan exhibition image 2">
+                </div>
             </div>
         </div>
-
-        <!-- Exhibition block, copy & paste to add more -->
-        <div class="exhibition-entry">
-            <h3 class="exhibition-title">TURPS 2025</h3>
-            <p class="exhibition-intro">
-                DBLAH BLAH BLAH BLAH BLAH BLAH BLAH BLAH BLAH BLAH BLAH BLAH BLAH BLAH BLAH BLAH BLAH
-                BLAH BLAH BLAH BLAH BLAH BLAH BLAH BLAH BLAH BLAH BLAH BLAH BLAH BLAH BLAH BLAH BLAH BLAH
-            </p>
-            <div class="exhibition-images">
-                <img src="public/assets/exhibition2-img1.jpg" alt="Exhibition 2 Image 1">
-                <img src="public/assets/exhibition2-img2.jpg" alt="Exhibition 2 Image 2">
-            </div>
-        </div>
-
-        <!-- Exhibition block, copy & paste to add more -->
-        <div class="exhibition-entry">
-            <h3 class="exhibition-title">Fitrovia gallery 2025</h3>
-            <p class="exhibition-intro">
-                BLAH BLAH BLAH BLAH BLAH BLAH BLAH BLAH BLAH BLAH BLAH BLAH BLAH BLAH BLAH 
-            </p>
-            <div class="exhibition-images">
-                <img src="public/assets/exhibition3-img1.jpg" alt="Exhibition 3 Image 1">
-                <img src="public/assets/exhibition3-img2.jpg" alt="Exhibition 3 Image 2">
-                <img src="public/assets/exhibition3-img3.jpg" alt="Exhibition 3 Image 3">
-                <img src="public/assets/exhibition3-img4.jpg" alt="Exhibition 3 Image 4">
-            </div>
-        </div>
-
-        <!-- Add more exhibitions as needed -->
     </section>
+
     <div class="section-divider"></div>
-   <section id="contact" class="bg-contact">
+    <section id="Writings" class="bg-writings">
+
+        <!-- This is the writings section, elements here are organized as list,
+        so to add another writing as they come, just add an <li> or copy a previous
+        one and change the text outside the tags-->
+
+        <h2>Writings</h2>
+        <ul class="writings-list">
+            <li>"Longing for my Metamorphosis by Aanya Mukhtyar is a textural feast that balances the boisterous and dainty. Transfixed, I imagined all the times I'd seen that little girl's wistful look on my sister and female cousins while they were growing up." - Asimov Baker <a href="https://www.asiimovbaker.com/post/exhibition-testimony-7-wake-at-fitzrovia-gallery">Read more</a></li>
+            <li>Mukhtyar’s investigation arrives at a felicitous moment. There is a palpable return to the spiritual in times of crisis — and we find ourselves in multiple, overlapping ones. What gives us hope? What sustains our will to fight? Though Mukhtyar may frame her practice largely in aesthetic terms, I would argue that (1) she approaches aesthetics through a spiritual lens, and (2) in investigating spirituality, she is excavating what it means to feel, to inhabit a body, to be human. She does so distinctly, through an ambitious weaving of references: mathematical patterns in Islamic art, the colour theories of Sonia Delaunay, narratives from Indian epics. Her British South Asian identity informs this referencing deeply, though it functions less as subject matter and more as the lens through which she sees. - Tobi Ibiye Makinde <em>“The Quiet Reach of the Spiritual in Aanya Mukhtyar’s Practise</em>” (Penlicenced issue 1)</li>
+        </ul>
+    </section>
+
+    <div class="section-divider"></div>
+    <section id="contact" class="bg-contact">
     <h2>Contact</h2>
     <div class="contact-icons">
         <a href="https://www.instagram.com/aanyaaz/" target="_blank" class="icon-btn" aria-label="Instagram">
             <img src="public/assets/IG.svg" alt="Instagram" />
         </a>
-        <a href="mailto:your@email.com" class="icon-btn" aria-label="Email">
+        <a href="mailto:aan.muk@icloud.com" class="icon-btn" aria-label="Email">
             <img src="public/assets/EMAIL.svg" alt="Email" />
         </a>
     </div>
 </section>
 </div>
+
+<div id="lightbox" aria-hidden="true">
+    <button id="lightbox-close" aria-label="Close">&times;</button>
+    <img id="lightbox-img" src="" alt="">
+</div>
+
 <footer class="site-footer">
-    Aanya Mukhtyar © 2025 &dash; All rights reserved
+    © Aanya Mukhtyar 2026
 </footer>
 
 <script>
-document.addEventListener('DOMContentLoaded', () => {
-  const projectsSection = document.querySelector('#projects');
-  const timeline = projectsSection && projectsSection.querySelector('.timeline');
-  if (!projectsSection || !timeline) return;
+    document.querySelectorAll('.gallery-carousel').forEach(carousel => {
+        const images = carousel.dataset.images.split(',').map(s => s.trim());
+        const alts   = carousel.dataset.alts.split(',').map(s => s.trim());
+        const img    = carousel.querySelector('.carousel-img');
+        const dots   = carousel.querySelector('.carousel-dots');
+        let current  = 0;
 
-  const io = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      // add "visible" when section is in view, remove when it leaves
-      if (entry.isIntersecting) {
-        timeline.classList.add('visible');
-      } else {
-        timeline.classList.remove('visible');
-      }
-    });
-  }, {
-    root: null,
-    rootMargin: '0px 0px -10% 0px', // tweak to reveal earlier/later
-    threshold: 0.25
-  });
+        img.src = images[0];
+        img.alt = alts[0] || '';
 
-  io.observe(projectsSection);
-});
+        if (images.length <= 1) {
+            carousel.querySelector('.carousel-controls').style.display = 'none';
+            return;
+        }
 
-// Carousel click functionality
-document.addEventListener('DOMContentLoaded', () => {
-  const items = document.querySelectorAll('#carousel .item');
-  const inputs = document.querySelectorAll('input[name="position"]');
-  
-  items.forEach((item, index) => {
-    item.addEventListener('click', (e) => {
-      e.preventDefault(); // Prevent any default behavior
-      e.stopPropagation(); // Stop event from bubbling
-      
-      // Check the corresponding radio button
-      if (inputs[index]) {
-        inputs[index].checked = true;
-      }
-    });
-  });
+        images.forEach((_, i) => {
+            const dot = document.createElement('button');
+            dot.className = 'carousel-dot' + (i === 0 ? ' active' : '');
+            dot.setAttribute('aria-label', 'Image ' + (i + 1));
+            dot.addEventListener('click', () => goTo(i));
+            dots.appendChild(dot);
+        });
 
-  // Also prevent default behavior on images
-  const carouselImages = document.querySelectorAll('#carousel .item img');
-  carouselImages.forEach(img => {
-    img.addEventListener('click', (e) => {
-      e.preventDefault();
-    });
-    // Prevent dragging which might trigger navigation
-    img.addEventListener('dragstart', (e) => {
-      e.preventDefault();
-    });
-  });
+        function goTo(index) {
+            const next = (index + images.length) % images.length;
+            const preload = new Image();
+            preload.onload = () => {
+                dots.children[current].classList.remove('active');
+                current = next;
+                img.style.opacity = '0';
+                requestAnimationFrame(() => {
+                    img.src = images[current];
+                    img.alt = alts[current] || '';
+                    img.offsetHeight;
+                    img.style.opacity = '1';
+                });
+                dots.children[current].classList.add('active');
+            };
+            preload.src = images[next];
+        }
 
-  // Prevent radio inputs from causing any form submission
-  inputs.forEach(input => {
-    input.addEventListener('change', (e) => {
-      e.preventDefault();
-      e.stopPropagation();
     });
-  });
-});
+
+    const lightbox = document.getElementById('lightbox');
+    const lightboxImg = document.getElementById('lightbox-img');
+
+    document.querySelectorAll('.gallery-item img, .exhibition-images img').forEach(img => {
+        img.style.cursor = 'zoom-in';
+        img.addEventListener('click', () => {
+            lightboxImg.src = img.src;
+            lightboxImg.alt = img.alt;
+            lightbox.classList.add('active');
+            lightbox.setAttribute('aria-hidden', 'false');
+            document.body.style.overflow = 'hidden';
+        });
+    });
+
+    function closeLightbox() {
+        lightbox.classList.remove('active');
+        lightbox.setAttribute('aria-hidden', 'true');
+        document.body.style.overflow = '';
+    }
+
+    document.getElementById('lightbox-close').addEventListener('click', closeLightbox);
+    lightbox.addEventListener('click', e => { if (e.target === lightbox) closeLightbox(); });
+    document.addEventListener('keydown', e => { if (e.key === 'Escape') closeLightbox(); });
+
+    document.querySelectorAll('a[href^="#"]').forEach(link => {
+        link.addEventListener('click', function(e) {
+            const target = document.querySelector(this.getAttribute('href'));
+            if (!target) return;
+            e.preventDefault();
+            const navHeight = 80;
+            const targetY = target.getBoundingClientRect().top + window.scrollY - navHeight;
+            const startY = window.scrollY;
+            const distance = targetY - startY;
+            const duration = 800;
+            let startTime = null;
+            function easeInOutCubic(t) {
+                return t < 0.5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2;
+            }
+            function step(timestamp) {
+                if (!startTime) startTime = timestamp;
+                const elapsed = timestamp - startTime;
+                const progress = Math.min(elapsed / duration, 1);
+                window.scrollTo(0, startY + distance * easeInOutCubic(progress));
+                if (progress < 1) requestAnimationFrame(step);
+            }
+            requestAnimationFrame(step);
+        });
+    });
 </script>
 </body>
 </html>
