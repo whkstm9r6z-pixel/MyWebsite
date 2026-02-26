@@ -387,6 +387,24 @@ are headings, with the smaller numbers being bigger headings, so these are the t
     lightbox.addEventListener('click', e => { if (e.target === lightbox) closeLightbox(); });
     document.addEventListener('keydown', e => { if (e.key === 'Escape') closeLightbox(); });
 
+    // Dropdown: tap to toggle on mobile, close on outside tap or link click
+    const dropdown = document.querySelector('.dropdown');
+    const hamburger = document.getElementById('hamburger-btn');
+    hamburger.addEventListener('click', function(e) {
+        e.stopPropagation();
+        dropdown.classList.toggle('open');
+    });
+    document.addEventListener('click', function(e) {
+        if (!dropdown.contains(e.target)) {
+            dropdown.classList.remove('open');
+        }
+    });
+    dropdown.querySelectorAll('.dropdown-content a').forEach(function(link) {
+        link.addEventListener('click', function() {
+            dropdown.classList.remove('open');
+        });
+    });
+
     document.querySelectorAll('a[href^="#"]').forEach(link => {
         link.addEventListener('click', function(e) {
             const target = document.querySelector(this.getAttribute('href'));

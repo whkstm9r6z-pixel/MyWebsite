@@ -105,7 +105,13 @@ body {
             color: #333 !important;
         }
 
-        .dropdown:hover .dropdown-content {
+        @media (hover: hover) {
+            .dropdown:hover .dropdown-content {
+                display: block;
+            }
+        }
+
+        .dropdown.open .dropdown-content {
             display: block;
         }
 
@@ -212,7 +218,7 @@ body {
         }
 
         section.bg-writings {
-            background: url('assets/writingsBG.jpeg');
+            background: linear-gradient(rgba(0,0,0,0.45), rgba(0,0,0,0.45)), url('assets/writingsBG.jpeg');
             background-size: cover;
             background-position: center center;
             background-repeat: no-repeat;
@@ -255,7 +261,7 @@ body {
             font-size: 1.6rem;
             line-height: 2;
             color: #ffffff;
-            text-shadow: 0 1px 6px rgba(0, 0, 0, 0.5);
+            text-shadow: 0 1px 8px rgba(0, 0, 0, 0.85), 0 2px 20px rgba(0, 0, 0, 0.6);
             padding-left: 28px;
             position: relative;
         }
@@ -812,12 +818,20 @@ body {
                 background-size: cover;
                 background-position: top center;
                 background-repeat: no-repeat;
+                background-attachment: scroll;
             }
 
             .about-text {
                 grid-column: auto;
                 align-items: center;
                 order: 1;
+            }
+
+            section.bg-writings {
+                background: linear-gradient(rgba(0,0,0,0.45), rgba(0,0,0,0.45)), url('assets/writingsBG.jpeg');
+                background-attachment: scroll;
+                background-size: cover;
+                background-position: center center;
             }
 
             .writings-list li {
@@ -827,7 +841,7 @@ body {
             }
 
             section.bg-projects {
-                padding: 60px 16px 60px 16px;
+                padding: 60px 16px 0 16px;
             }
 
             .gallery-container {
@@ -854,7 +868,8 @@ body {
             section.bg-contact {
                 min-height: 50vh;
                 padding: 80px 5vw 40px 5vw;
-                background-position: top top;
+                background-position: top center;
+                background-attachment: scroll;
             }
 
             .contact-icons {
